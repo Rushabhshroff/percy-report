@@ -1,8 +1,8 @@
 //@ts-nocheck
 global.fetch = require('node-fetch')
 const fs = require('fs')
-const token = "9c4085f1215b2acac26017f0b78d2eb0f782c01fda05e04672e51d7d2b85bc4f"
-const buildId = "16448729"
+const token = "Percy Token"
+const buildId = "Build ID"
 
 
 fetch(`https://percy.io/api/v1/snapshots?build_id=${buildId}`, {
