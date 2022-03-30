@@ -1,8 +1,8 @@
 //@ts-nocheck
 global.fetch = require('node-fetch')
 const fs = require('fs')
-const token = "Percy Token"
-const buildId = "Build ID"
+const token = "9c4085f1215b2acac26017f0b78d2eb0f782c01fda05e04672e51d7d2b85bc4f"
+const buildId = "16448729"
 
 
 fetch(`https://percy.io/api/v1/snapshots?build_id=${buildId}`, {
@@ -45,7 +45,7 @@ async function CreateReportFromResponse(json, dir) {
                 remote: {
                     baseline: resource.relationships['base-screenshot'].data ? getScreenshotUrl(resource.relationships['base-screenshot'].data.id) : "",
                     head: getScreenshotUrl(resource.relationships['head-screenshot'].data.id),
-                    diff: getImageUrl(resource.relationships['diff-image'].data.id)
+                    diff: resource.relationships['diff-image'].data?getImageUrl(resource.relationships['diff-image'].data.id) : ""
                 },
                 local: {
                     baseline: "",
